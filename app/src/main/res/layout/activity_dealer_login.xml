@@ -9,55 +9,80 @@
     tools:context=".DealerLogin"
     >
 
+    <TextView
+        android:id="@+id/dealer_management_title"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
+        android:singleLine="true"
+        android:textColor="@color/gold"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:text="@string/dealer_login"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <ImageView
+        android:id="@+id/img_party"
         android:layout_width="237dp"
         android:layout_height="201dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
         android:src="@mipmap/ic_launcher_foreground"
-        app:layout_constraintBottom_toTopOf="@id/txt_username"
+        app:layout_constraintTop_toBottomOf="@id/dealer_management_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:contentDescription="@string/party_image" />
-
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/Login"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/gold"
-        />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/txt_username"
         android:layout_width="300dp"
         android:layout_height="25dp"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
+        android:layout_marginTop="30dp"
         android:background="@color/white"
         android:hint="@string/username"
-        app:layout_constraintBottom_toTopOf="@id/txt_password"
+        android:singleLine="true"
+        android:textColor="@color/red"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/img_party"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/txt_password"
         android:layout_width="300dp"
         android:layout_height="25dp"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:background="@color/white"
         android:hint="@string/password"
-        app:layout_constraintBottom_toTopOf="@id/btn_login"
+        android:singleLine="true"
+        android:textColor="@color/red"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/txt_username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="250dp"
+        android:backgroundTint="@color/gold"
+        android:orientation="vertical"
+        android:text="@string/Login"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="@id/txt_password"
+        tools:ignore="UnusedAttribute" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

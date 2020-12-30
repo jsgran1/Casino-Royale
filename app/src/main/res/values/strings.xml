@@ -7,4 +7,6 @@
     <string name="new_player_name">New Player Name</string>
     <string name="create_player">Create Player</string>
     <string name="party_image">Party Image</string>
+    <string name="player_creation">Player Creation</string>
+    <string name="dealer_login">Dealer Login</string>
 </resources>

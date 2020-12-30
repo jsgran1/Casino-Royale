@@ -9,81 +9,94 @@
     >
 
     <TextView
+        android:id="@+id/dealer_management_title"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginBottom="30dp"
+        android:singleLine="true"
+        android:textColor="@color/gold"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:text="@string/player_creation"
+        app:layout_constraintBottom_toTopOf="@id/player_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
         android:id="@+id/player_name"
         android:layout_width="300dp"
         android:layout_height="25dp"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/player_score"
         android:background="@color/white"
-        android:textStyle="bold"
+        android:singleLine="true"
         android:textColor="@color/red"
         android:textSize="20sp"
-        />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/player_score"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/player_score"
         android:layout_width="300dp"
         android:layout_height="25dp"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/new_player_name"
         android:background="@color/white"
-        android:textStyle="bold"
+        android:singleLine="true"
         android:textColor="@color/red"
         android:textSize="20sp"
-        />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/new_player_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/new_player_name"
         android:layout_width="300dp"
         android:layout_height="25dp"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/new_player_score"
         android:background="@color/white"
+        android:focusedByDefault="true"
         android:hint="@string/new_player_name"
-        android:textStyle="bold"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
         android:textColor="@color/red"
         android:textSize="20sp"
-        android:focusedByDefault="true"
-        tools:ignore="UnusedAttribute"
-        />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/new_player_score"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="UnusedAttribute" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/new_player_score"
         android:layout_width="300dp"
         android:layout_height="25dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/ceate_new_player"
+        android:layout_marginBottom="50dp"
         android:background="@color/white"
         android:hint="@string/new_player_score"
-        android:textStyle="bold"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
         android:textColor="@color/red"
         android:textSize="20sp"
-        />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/ceate_new_player"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/ceate_new_player"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="300dp"
+        android:backgroundTint="@color/gold"
+        android:text="@string/create_player"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="300dp"
-        android:text="@string/create_player"
-        android:textStyle="bold"
-        android:backgroundTint="@color/gold"
-        android:textColor="@color/black"
         tools:ignore="UnusedAttribute" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
