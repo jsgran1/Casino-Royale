@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
+    android:clickable="false"
     android:orientation="horizontal"
     tools:context=".MainActivity">
 
@@ -36,23 +37,102 @@
         android:id="@+id/slot_frame"
         android:layout_width="425dp"
         android:layout_height="425dp"
+        android:layout_marginTop="55dp"
         android:src="@drawable/slot_frame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="55dp"
         tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/lights_off"
         android:layout_width="425dp"
         android:layout_height="425dp"
+        android:layout_marginTop="55dp"
         android:src="@drawable/lights_off"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="55dp"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"
+        android:visibility="visible"/>
+
+    <ImageView
+        android:id="@+id/lights_red"
+        android:layout_width="440dp"
+        android:layout_height="425dp"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/lights_red"
+        app:layout_constraintEnd_toEndOf="@id/lights_off"
+        app:layout_constraintStart_toStartOf="@id/lights_off"
+        app:layout_constraintTop_toTopOf="@id/lights_off"
+        app:layout_constraintBottom_toBottomOf="@id/lights_off"
+        tools:ignore="ContentDescription"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/lights_odds"
+        android:layout_width="440dp"
+        android:layout_height="425dp"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/lights_odds"
+        app:layout_constraintEnd_toEndOf="@id/lights_off"
+        app:layout_constraintStart_toStartOf="@id/lights_off"
+        app:layout_constraintTop_toTopOf="@id/lights_off"
+        app:layout_constraintBottom_toBottomOf="@id/lights_off"
+        tools:ignore="ContentDescription"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/lights_evens"
+        android:layout_width="440dp"
+        android:layout_height="425dp"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/lights_evens"
+        app:layout_constraintEnd_toEndOf="@id/lights_off"
+        app:layout_constraintStart_toStartOf="@id/lights_off"
+        app:layout_constraintTop_toTopOf="@id/lights_off"
+        app:layout_constraintBottom_toBottomOf="@id/lights_off"
+        tools:ignore="ContentDescription"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/lights_1"
+        android:layout_width="440dp"
+        android:layout_height="425dp"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/lights_1"
+        app:layout_constraintEnd_toEndOf="@id/lights_off"
+        app:layout_constraintStart_toStartOf="@id/lights_off"
+        app:layout_constraintTop_toTopOf="@id/lights_off"
+        app:layout_constraintBottom_toBottomOf="@id/lights_off"
+        tools:ignore="ContentDescription"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/lights_2"
+        android:layout_width="440dp"
+        android:layout_height="425dp"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/lights_2"
+        app:layout_constraintEnd_toEndOf="@id/lights_off"
+        app:layout_constraintStart_toStartOf="@id/lights_off"
+        app:layout_constraintTop_toTopOf="@id/lights_off"
+        app:layout_constraintBottom_toBottomOf="@id/lights_off"
+        tools:ignore="ContentDescription"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/lights_3"
+        android:layout_width="440dp"
+        android:layout_height="425dp"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/lights_3"
+        app:layout_constraintEnd_toEndOf="@id/lights_off"
+        app:layout_constraintStart_toStartOf="@id/lights_off"
+        app:layout_constraintTop_toTopOf="@id/lights_off"
+        app:layout_constraintBottom_toBottomOf="@id/lights_off"
+        tools:ignore="ContentDescription"
+        android:visibility="gone"/>
 
     <ImageView
         android:id="@+id/jackpot_frame_0"
@@ -64,6 +144,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/jackpot_pot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$0.00"
+        android:textColor="@color/gold"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/jackpot_frame_0"
+        app:layout_constraintEnd_toEndOf="@id/jackpot_frame_0"
+        app:layout_constraintStart_toStartOf="@id/jackpot_frame_0"
+        app:layout_constraintTop_toTopOf="@id/jackpot_frame_0" />
 
     <ImageView
         android:id="@+id/jackpot_title"
@@ -82,78 +175,137 @@
         android:src="@drawable/handle_up"
         app:layout_constraintStart_toEndOf="@id/slot_frame"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"
+        android:visibility="visible"/>
 
     <ImageView
         android:id="@+id/pay_table_up"
         android:layout_width="140dp"
         android:layout_height="60dp"
-        android:src="@drawable/pay_table_up"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="30dp"
+        android:src="@drawable/pay_table_up"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/pay_table_down"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/pay_table_down"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/line_bet_up"
         android:layout_width="140dp"
         android:layout_height="60dp"
-        android:src="@drawable/line_bet_up"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/pay_table_up"
         android:layout_marginStart="@dimen/btn_gaps"
         android:layout_marginLeft="@dimen/btn_gaps"
         android:layout_marginBottom="10dp"
+        android:src="@drawable/line_bet_up"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/pay_table_up"
+        tools:ignore="ContentDescription"
+        android:onClick="cycleLineBet"/>
+
+    <ImageView
+        android:id="@+id/line_bet_down"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="@dimen/btn_gaps"
+        android:layout_marginLeft="@dimen/btn_gaps"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/line_bet_down"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/pay_table_up"
         tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/line_select_up"
         android:layout_width="140dp"
         android:layout_height="60dp"
-        android:src="@drawable/line_select_up"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/line_bet_up"
         android:layout_marginStart="@dimen/btn_gaps"
         android:layout_marginLeft="@dimen/btn_gaps"
         android:layout_marginBottom="10dp"
+        android:src="@drawable/line_select_up"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/line_bet_up"
+        tools:ignore="ContentDescription"
+        android:onClick="cycleLineNumb"/>
+
+    <ImageView
+        android:id="@+id/line_select_down"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="@dimen/btn_gaps"
+        android:layout_marginLeft="@dimen/btn_gaps"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/line_select_down"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/line_bet_up"
         tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/bet_label"
         android:layout_width="140dp"
         android:layout_height="60dp"
-        android:src="@drawable/bet_label"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/line_select_up"
         android:layout_marginStart="@dimen/btn_gaps"
         android:layout_marginLeft="@dimen/btn_gaps"
         android:layout_marginBottom="10dp"
+        android:src="@drawable/bet_label"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/line_select_up"
         tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/win_label"
         android:layout_width="140dp"
         android:layout_height="60dp"
-        android:src="@drawable/win_label"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/bet_label"
         android:layout_marginStart="@dimen/btn_gaps"
         android:layout_marginLeft="@dimen/btn_gaps"
         android:layout_marginBottom="10dp"
+        android:src="@drawable/win_label"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/bet_label"
         tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/cash_out_up"
         android:layout_width="140dp"
         android:layout_height="60dp"
-        android:src="@drawable/cash_out_up"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/win_label"
         android:layout_marginStart="@dimen/btn_gaps"
         android:layout_marginLeft="@dimen/btn_gaps"
         android:layout_marginBottom="30dp"
+        android:src="@drawable/cash_out_up"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/win_label"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/cash_out_down"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="@dimen/btn_gaps"
+        android:layout_marginLeft="@dimen/btn_gaps"
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/cash_out_down"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/win_label"
         tools:ignore="ContentDescription" />
 
     <ImageView
@@ -162,20 +314,33 @@
         android:layout_height="50dp"
         android:scaleType="fitXY"
         android:src="@drawable/credit_text"
-        app:layout_constraintTop_toBottomOf="@id/slot_frame"
         app:layout_constraintBottom_toTopOf="@id/line_bet_up"
-        app:layout_constraintStart_toStartOf="@id/line_bet_up"
         app:layout_constraintEnd_toEndOf="@id/line_bet_up"
+        app:layout_constraintStart_toStartOf="@id/line_bet_up"
+        app:layout_constraintTop_toBottomOf="@id/slot_frame"
         tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/txt_bet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/line_bet_txt"
+        app:layout_constraintEnd_toEndOf="@id/line_bet_txt"
+        app:layout_constraintStart_toStartOf="@id/line_bet_txt"
+        app:layout_constraintTop_toTopOf="@id/line_bet_txt" />
 
     <ImageView
         android:id="@+id/times"
-        android:src="@drawable/times"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        app:layout_constraintStart_toEndOf="@id/line_bet_txt"
-        app:layout_constraintEnd_toStartOf="@id/line_select_txt"
+        android:src="@drawable/times"
         app:layout_constraintBottom_toTopOf="@id/line_bet_up"
+        app:layout_constraintEnd_toStartOf="@id/line_select_txt"
+        app:layout_constraintStart_toEndOf="@id/line_bet_txt"
         app:layout_constraintTop_toBottomOf="@id/slot_frame"
         tools:ignore="ContentDescription" />
 
@@ -185,20 +350,33 @@
         android:layout_height="50dp"
         android:scaleType="fitXY"
         android:src="@drawable/credit_text"
-        app:layout_constraintTop_toBottomOf="@id/slot_frame"
         app:layout_constraintBottom_toTopOf="@id/line_select_up"
-        app:layout_constraintStart_toStartOf="@id/line_select_up"
         app:layout_constraintEnd_toEndOf="@id/line_select_up"
+        app:layout_constraintStart_toStartOf="@id/line_select_up"
+        app:layout_constraintTop_toBottomOf="@id/slot_frame"
         tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/txt_line_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/line_select_txt"
+        app:layout_constraintEnd_toEndOf="@id/line_select_txt"
+        app:layout_constraintStart_toStartOf="@id/line_select_txt"
+        app:layout_constraintTop_toTopOf="@id/line_select_txt" />
 
     <ImageView
         android:id="@+id/equals"
-        android:src="@drawable/equals"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        app:layout_constraintStart_toEndOf="@id/line_select_txt"
-        app:layout_constraintEnd_toStartOf="@id/bet_text"
+        android:src="@drawable/equals"
         app:layout_constraintBottom_toTopOf="@id/line_bet_up"
+        app:layout_constraintEnd_toStartOf="@id/bet_text"
+        app:layout_constraintStart_toEndOf="@id/line_select_txt"
         app:layout_constraintTop_toBottomOf="@id/slot_frame"
         tools:ignore="ContentDescription" />
 
@@ -208,11 +386,24 @@
         android:layout_height="50dp"
         android:scaleType="fitXY"
         android:src="@drawable/bet_text"
-        app:layout_constraintTop_toBottomOf="@id/slot_frame"
         app:layout_constraintBottom_toTopOf="@id/bet_label"
-        app:layout_constraintStart_toStartOf="@id/bet_label"
         app:layout_constraintEnd_toEndOf="@id/bet_label"
+        app:layout_constraintStart_toStartOf="@id/bet_label"
+        app:layout_constraintTop_toBottomOf="@id/slot_frame"
         tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/txt_bet_ttl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/bet_text"
+        app:layout_constraintEnd_toEndOf="@id/bet_text"
+        app:layout_constraintStart_toStartOf="@id/bet_text"
+        app:layout_constraintTop_toTopOf="@id/bet_text" />
 
     <ImageView
         android:id="@+id/win_txt"
@@ -220,33 +411,70 @@
         android:layout_height="50dp"
         android:scaleType="fitXY"
         android:src="@drawable/credit_text"
-        app:layout_constraintTop_toBottomOf="@id/slot_frame"
         app:layout_constraintBottom_toTopOf="@id/win_label"
-        app:layout_constraintStart_toStartOf="@id/win_label"
         app:layout_constraintEnd_toEndOf="@id/win_label"
+        app:layout_constraintStart_toStartOf="@id/win_label"
+        app:layout_constraintTop_toBottomOf="@id/slot_frame"
         tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/txt_win_amt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/win_txt"
+        app:layout_constraintEnd_toEndOf="@id/win_txt"
+        app:layout_constraintStart_toStartOf="@id/win_txt"
+        app:layout_constraintTop_toTopOf="@id/win_txt" />
 
     <ImageView
         android:id="@+id/credit_label"
         android:layout_width="140dp"
         android:layout_height="60dp"
+        android:layout_marginBottom="40dp"
         android:scaleType="fitXY"
         android:src="@drawable/credit_label"
         app:layout_constraintBottom_toTopOf="@id/cash_out_up"
         app:layout_constraintStart_toStartOf="@id/cash_out_up"
-        android:layout_marginBottom="40dp"
         tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/credit_text"
         android:layout_width="100dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
         android:scaleType="fitXY"
         android:src="@drawable/credit_text"
         app:layout_constraintBottom_toTopOf="@id/credit_label"
-        app:layout_constraintStart_toStartOf="@id/credit_label"
         app:layout_constraintEnd_toEndOf="@id/credit_label"
-        android:layout_marginBottom="10dp"
+        app:layout_constraintStart_toStartOf="@id/credit_label"
         tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/txt_credit_balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/credit_text"
+        app:layout_constraintEnd_toEndOf="@id/credit_text"
+        app:layout_constraintStart_toStartOf="@id/credit_text"
+        app:layout_constraintTop_toTopOf="@id/credit_text" />
+
+    <ImageView
+        android:id="@+id/handle_down"
+        android:layout_width="206dp"
+        android:layout_height="305dp"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/handle_down"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/slot_frame"
+        tools:ignore="ContentDescription"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
