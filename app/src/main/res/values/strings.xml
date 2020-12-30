@@ -9,5 +9,5 @@
     <string name="party_image">Party Image</string>
     <string name="player_creation">Player Creation</string>
     <string name="dealer_login">Dealer Login</string>
-    <string name="slot_handle">Slot Handle</string>
+    <string name="poorNotice">Not enough money</string>
 </resources>

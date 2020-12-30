@@ -3,12 +3,19 @@ package com.example.casinoroyale;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements IEventEnd {
+
+    final int MIN_BET = 1, MAX_BET = 5, MAX_LINES = 3;
+    int bet_amt = 1, line_bet = 1;
+    int ttl_bet = 0;
+    int count_done = 0;
 
     ImageView lights_off;
     ImageView lights_red;
@@ -75,10 +82,20 @@ public class MainActivity extends AppCompatActivity implements IEventEnd {
         txt_credit_balance = findViewById(R.id.txt_credit_balance);
         jackpot_pot = findViewById(R.id.jackpot_pot);
 
-        cash_out_up.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openDealerLogin();
+        //set credit balance
+        setCreditBalance();
+        calcTtlBet();
+
+        cash_out_up.setOnClickListener(v -> openDealerLogin());
+
+        handle_up.setOnClickListener(view -> {
+            if (Common.SCORE >= bet_amt) {
+                handle_up.setVisibility(View.GONE);
+                handle_down.setVisibility(View.VISIBLE);
+                Common.SCORE -= bet_amt;
+                setCreditBalance();
+            } else {
+                Toast.makeText(MainActivity.this, R.string.poorNotice, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -88,16 +105,56 @@ public class MainActivity extends AppCompatActivity implements IEventEnd {
 
     }
 
-    public void cycleLineBet() {
-
-    }
-
-    public void cycleLineNumb() {
-
-    }
-
     private void openDealerLogin() {
         Intent intent = new Intent(this, DealerLogin.class);
         startActivity(intent);
     }
+
+    private void setCreditBalance() {
+        txt_credit_balance.setText(String.valueOf(Common.SCORE));
+    }
+
+    public void cycleLineBet(View view) {
+        line_bet_up.setVisibility(View.GONE);
+        line_bet_down.setVisibility(View.VISIBLE);
+        new Handler().postDelayed(cycleLineBet(), 500);
+    }
+
+    public Runnable cycleLineBet() {
+        if (count_done == 0 && handle_up.getVisibility() == View.VISIBLE && bet_amt < MAX_BET) {
+            bet_amt++;
+        } else if (count_done == 0 && handle_up.getVisibility() == View.VISIBLE) {
+            bet_amt = 1;
+        }
+        txt_bet.setText(String.valueOf(bet_amt));
+        calcTtlBet();
+        line_bet_up.setVisibility(View.VISIBLE);
+        line_bet_down.setVisibility(View.GONE);
+        return null;
+    }
+
+    public void cycleLineNumb(View view) {
+        line_select_up.setVisibility(View.GONE);
+        line_select_down.setVisibility(View.VISIBLE);
+        new Handler().postDelayed(cycleLineNumb(), 500);
+    }
+
+    public Runnable cycleLineNumb() {
+        if (count_done == 0 && handle_up.getVisibility() == View.VISIBLE && line_bet < MAX_LINES) {
+            line_bet++;
+        } else if (count_done == 0 && handle_up.getVisibility() == View.VISIBLE) {
+            line_bet = 1;
+        }
+        txt_line_num.setText(String.valueOf(line_bet));
+        calcTtlBet();
+        line_select_up.setVisibility(View.VISIBLE);
+        line_select_down.setVisibility(View.GONE);
+        return null;
+    }
+
+    private void calcTtlBet() {
+        ttl_bet = bet_amt * line_bet;
+        txt_bet_ttl.setText(String.valueOf(ttl_bet));
+    }
+
 }
