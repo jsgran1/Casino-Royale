@@ -1,28 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".DealerLogin"
-    >
+    tools:context=".DealerLogin">
 
     <TextView
         android:id="@+id/dealer_management_title"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginBottom="30dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
         android:singleLine="true"
+        android:text="@string/dealer_login"
         android:textColor="@color/gold"
         android:textSize="35sp"
         android:textStyle="bold"
-        android:text="@string/dealer_login"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/img_party"
@@ -30,43 +28,43 @@
         android:layout_height="201dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
+        android:contentDescription="@string/party_image"
         android:src="@mipmap/ic_launcher_foreground"
-        app:layout_constraintTop_toBottomOf="@id/dealer_management_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:contentDescription="@string/party_image" />
+        app:layout_constraintTop_toBottomOf="@id/dealer_management_title" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/txt_username"
         android:layout_width="300dp"
         android:layout_height="25dp"
-        android:layout_marginBottom="10dp"
         android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
         android:background="@color/white"
         android:hint="@string/username"
         android:singleLine="true"
         android:textColor="@color/red"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/img_party"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_party" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/txt_password"
         android:layout_width="300dp"
         android:layout_height="25dp"
-        android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@color/white"
         android:hint="@string/password"
         android:singleLine="true"
         android:textColor="@color/red"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/txt_username"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_username" />
 
     <Button
         android:id="@+id/btn_login"

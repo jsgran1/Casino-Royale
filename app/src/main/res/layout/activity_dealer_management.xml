@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
-    >
+    android:background="@color/black">
 
     <TextView
         android:id="@+id/dealer_management_title"
@@ -14,10 +12,10 @@
         android:layout_height="50dp"
         android:layout_marginBottom="30dp"
         android:singleLine="true"
+        android:text="@string/player_creation"
         android:textColor="@color/gold"
         android:textSize="35sp"
         android:textStyle="bold"
-        android:text="@string/player_creation"
         app:layout_constraintBottom_toTopOf="@id/player_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
