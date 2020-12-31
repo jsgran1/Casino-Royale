@@ -78,21 +78,24 @@
         android:layout_height="@dimen/slotSize"
         android:layout_marginTop="45dp"
         app:layout_constraintStart_toEndOf="@id/guideline1"
-        app:layout_constraintTop_toTopOf="@id/slot_frame" />
+        app:layout_constraintTop_toTopOf="@id/slot_frame"
+        android:visibility="invisible"/>
 
     <com.example.casinoroyale.ImageViewScrolling
         android:id="@+id/r2_img2"
         android:layout_width="@dimen/slotSize"
         android:layout_height="@dimen/slotSize"
         app:layout_constraintStart_toEndOf="@id/guideline1"
-        app:layout_constraintTop_toBottomOf="@id/r2_img1" />
+        app:layout_constraintTop_toBottomOf="@id/r2_img1"
+        android:visibility="invisible"/>
 
     <com.example.casinoroyale.ImageViewScrolling
         android:id="@+id/r2_img3"
         android:layout_width="@dimen/slotSize"
         android:layout_height="@dimen/slotSize"
         app:layout_constraintStart_toEndOf="@id/guideline1"
-        app:layout_constraintTop_toBottomOf="@id/r2_img2" />
+        app:layout_constraintTop_toBottomOf="@id/r2_img2"
+        android:visibility="invisible"/>
 
     <com.example.casinoroyale.ImageViewScrolling
         android:id="@+id/r3_img1"
@@ -100,21 +103,24 @@
         android:layout_height="@dimen/slotSize"
         android:layout_marginTop="45dp"
         app:layout_constraintStart_toEndOf="@id/guideline2"
-        app:layout_constraintTop_toTopOf="@id/slot_frame" />
+        app:layout_constraintTop_toTopOf="@id/slot_frame"
+        android:visibility="invisible"/>
 
     <com.example.casinoroyale.ImageViewScrolling
         android:id="@+id/r3_img2"
         android:layout_width="@dimen/slotSize"
         android:layout_height="@dimen/slotSize"
         app:layout_constraintStart_toEndOf="@id/guideline2"
-        app:layout_constraintTop_toBottomOf="@id/r3_img1" />
+        app:layout_constraintTop_toBottomOf="@id/r3_img1"
+        android:visibility="invisible"/>
 
     <com.example.casinoroyale.ImageViewScrolling
         android:id="@+id/r3_img3"
         android:layout_width="@dimen/slotSize"
         android:layout_height="@dimen/slotSize"
         app:layout_constraintStart_toEndOf="@id/guideline2"
-        app:layout_constraintTop_toBottomOf="@id/r3_img2" />
+        app:layout_constraintTop_toBottomOf="@id/r3_img2"
+        android:visibility="invisible"/>
 
     <ImageView
         android:id="@+id/lights_off"
@@ -134,7 +140,7 @@
         android:layout_height="425dp"
         android:layout_marginTop="0dp"
         android:src="@drawable/lights_red"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@id/lights_off"
         app:layout_constraintEnd_toEndOf="@id/lights_off"
         app:layout_constraintStart_toStartOf="@id/lights_off"
@@ -147,7 +153,7 @@
         android:layout_height="425dp"
         android:layout_marginTop="0dp"
         android:src="@drawable/lights_odds"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@id/lights_off"
         app:layout_constraintEnd_toEndOf="@id/lights_off"
         app:layout_constraintStart_toStartOf="@id/lights_off"
@@ -160,7 +166,7 @@
         android:layout_height="425dp"
         android:layout_marginTop="0dp"
         android:src="@drawable/lights_evens"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@id/lights_off"
         app:layout_constraintEnd_toEndOf="@id/lights_off"
         app:layout_constraintStart_toStartOf="@id/lights_off"
@@ -173,7 +179,7 @@
         android:layout_height="425dp"
         android:layout_marginTop="0dp"
         android:src="@drawable/lights_1"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@id/lights_off"
         app:layout_constraintEnd_toEndOf="@id/lights_off"
         app:layout_constraintStart_toStartOf="@id/lights_off"
@@ -186,7 +192,7 @@
         android:layout_height="425dp"
         android:layout_marginTop="0dp"
         android:src="@drawable/lights_2"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@id/lights_off"
         app:layout_constraintEnd_toEndOf="@id/lights_off"
         app:layout_constraintStart_toStartOf="@id/lights_off"
@@ -199,7 +205,7 @@
         android:layout_height="425dp"
         android:layout_marginTop="0dp"
         android:src="@drawable/lights_3"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@id/lights_off"
         app:layout_constraintEnd_toEndOf="@id/lights_off"
         app:layout_constraintStart_toStartOf="@id/lights_off"
@@ -221,7 +227,7 @@
         android:id="@+id/jackpot_pot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
+        android:text="@string/jackpot_starting"
         android:textColor="@color/gold"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -271,7 +277,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="30dp"
         android:src="@drawable/pay_table_down"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="ContentDescription" />
@@ -298,7 +304,7 @@
         android:layout_marginLeft="@dimen/btn_gaps"
         android:layout_marginBottom="10dp"
         android:src="@drawable/line_bet_down"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/pay_table_up"
         tools:ignore="ContentDescription" />
@@ -325,7 +331,7 @@
         android:layout_marginLeft="@dimen/btn_gaps"
         android:layout_marginBottom="10dp"
         android:src="@drawable/line_select_down"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/line_bet_up"
         tools:ignore="ContentDescription" />
@@ -375,7 +381,7 @@
         android:layout_marginLeft="@dimen/btn_gaps"
         android:layout_marginBottom="30dp"
         android:src="@drawable/cash_out_down"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/win_label"
         tools:ignore="ContentDescription" />
@@ -396,7 +402,7 @@
         android:id="@+id/txt_bet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
+        android:text="@string/starting_bet"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -432,7 +438,7 @@
         android:id="@+id/txt_line_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
+        android:text="@string/starting_bet"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -468,7 +474,7 @@
         android:id="@+id/txt_bet_ttl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
+        android:text="@string/starting_bet"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -544,7 +550,7 @@
         android:layout_height="305dp"
         android:layout_marginBottom="50dp"
         android:src="@drawable/handle_down"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/slot_frame"
         tools:ignore="ContentDescription" />

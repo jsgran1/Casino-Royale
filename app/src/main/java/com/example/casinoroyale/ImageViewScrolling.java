@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
@@ -12,8 +13,6 @@ import java.util.Random;
 public class ImageViewScrolling extends FrameLayout {
 
     ImageView current_image, next_image;
-    int last_result = 0, old_value = 0;
-    int spinsDone = 0;
     IEventEnd eventEnd;
 
     public ImageViewScrolling(Context context) {
@@ -37,45 +36,34 @@ public class ImageViewScrolling extends FrameLayout {
         this.eventEnd = eventEnd;
     }
 
-    public void startReelSpin(int ANIMATION_DUR, int spinCount) {
-        setImage(next_image, (old_value + 1) % 10);
-        current_image.animate().translationY(getHeight()).setDuration(ANIMATION_DUR).start();
+    public void spinReel() {
+        current_image.animate().translationY(getHeight()).setDuration(Common.ANIMATION_DUR).start();
         next_image.setTranslationY(-next_image.getHeight());
         next_image.animate().translationY(0)
-                .setDuration(ANIMATION_DUR)
+                .setDuration(Common.ANIMATION_DUR)
                 .setListener(new Animator.AnimatorListener() {
                     @Override
-                    public void onAnimationStart(Animator animation) {
-                    }
-
+                    public void onAnimationStart(Animator animation) {}
                     @Override
                     public void onAnimationEnd(Animator animation) {
+                        System.out.print(""+getCurrValue());
                         current_image.setTranslationY(0);
-                        if (spinsDone < spinCount) {
-                            spinsDone++;
-                            old_value++;
-                            setImage(next_image, (old_value) % 13);
-                            setImage(current_image, getValue());
-                            startReelSpin(ANIMATION_DUR, spinCount);
-                        } else {
-                            old_value++;
-                            spinsDone = 0;//reset spins done to 0
-                            setImage(current_image, getValue());
-                            eventEnd.eventEnd(0, spinCount);
-                        }
+                        setImage("current", getNextValue());
                     }
-
                     @Override
-                    public void onAnimationCancel(Animator animation) {
-                    }
-
+                    public void onAnimationCancel(Animator animation) {}
                     @Override
-                    public void onAnimationRepeat(Animator animation) {
-                    }
+                    public void onAnimationRepeat(Animator animation) {}
                 });
     }
 
-    private void setImage(ImageView image_view, int value) {
+    public void setImage(String image_name, int value) {
+        ImageView image_view;
+        if (image_name.equals("current")) {
+            image_view = current_image;
+        } else {
+            image_view = next_image;
+        }
         if (value == Util.ACE)
             image_view.setImageResource(R.drawable.ace);
         else if (value == Util.KING)
@@ -96,19 +84,15 @@ public class ImageViewScrolling extends FrameLayout {
             image_view.setImageResource(R.drawable.spade);
         else if (value == Util.JOKER)
             image_view.setImageResource(R.drawable.joker);
-
         image_view.setTag(value);
-        last_result = value;
     }
 
-    public int getValue() {
+    public int getCurrValue() {
+        return Integer.parseInt(current_image.getTag().toString());
+    }
+
+    public int getNextValue() {
         return Integer.parseInt(next_image.getTag().toString());
-    }
-
-    public int setSpinCount() {
-        int i = new Random().nextInt(4);
-        i += 10;
-        return i;
     }
 
 }

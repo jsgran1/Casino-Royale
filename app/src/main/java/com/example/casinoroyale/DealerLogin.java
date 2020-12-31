@@ -22,12 +22,7 @@ public class DealerLogin extends AppCompatActivity {
         username = findViewById(R.id.txt_username);
         password = findViewById(R.id.txt_password);
         login = findViewById(R.id.btn_login);
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dealerLogin();
-            }
-        });
+        login.setOnClickListener(v -> dealerLogin());
     }
 
     public void dealerLogin() {

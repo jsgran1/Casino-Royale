@@ -10,4 +10,6 @@
     <string name="player_creation">Player Creation</string>
     <string name="dealer_login">Dealer Login</string>
     <string name="poorNotice">Not enough money</string>
+    <string name="starting_bet">1</string>
+    <string name="jackpot_starting">0</string>
 </resources>
